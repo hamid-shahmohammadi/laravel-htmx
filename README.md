@@ -1,4 +1,4 @@
-```
+```html
 <input
 name="search-term"
 hx-get="/search"
