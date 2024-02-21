@@ -20,12 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post("/store/post",function(Request $request){
-    // return $request->all();
-    $post=new Post();
-    $post->title=$request->title;
-    $post->body=$request->body;
-    if($post->save()){
-        return 'post save';
-    }
-    return 'post not save';
+    return $request->all();
+
 });
