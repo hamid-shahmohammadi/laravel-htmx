@@ -23,3 +23,18 @@ Route::post("/store/post",function(Request $request){
     return $request->all();
 
 });
+
+Route::post('/upload/file',function(Request $request){
+
+    $request->validate([
+        'file' => 'required|mimes:pdf,jpg,png|max:2048',
+    ]);
+
+    // Store the file in storage\app\public folder
+    $file = $request->file('file');
+    $fileName = $file->getClientOriginalName();
+    $filePath = $file->store('uploads', 'public');
+
+    return 'upload file';
+
+});
